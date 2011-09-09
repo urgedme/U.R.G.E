@@ -1,0 +1,17 @@
+C:\Users\gries\Desktop\URGE\URGE\URGE\bin\Release\URGE.exe.config
+C:\Users\gries\Desktop\URGE\URGE\URGE\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\gries\Desktop\URGE\URGE\URGE\obj\x86\Release\URGE.Enter_PIN.resources
+C:\Users\gries\Desktop\URGE\URGE\URGE\obj\x86\Release\URGE.Form1.resources
+C:\Users\gries\Desktop\URGE\URGE\URGE\obj\x86\Release\URGE.Properties.Resources.resources
+C:\Users\gries\Desktop\URGE\URGE\URGE\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\gries\Desktop\URGE\URGE\URGE\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\gries\Desktop\URGE\URGE\URGE\bin\Release\URGE.exe.manifest
+C:\Users\gries\Desktop\URGE\URGE\URGE\bin\Release\URGE.application
+C:\Users\gries\Desktop\URGE\URGE\URGE\bin\Release\URGE.exe
+C:\Users\gries\Desktop\URGE\URGE\URGE\bin\Release\URGE.pdb
+C:\Users\gries\Desktop\URGE\URGE\URGE\bin\Release\Twitterizer2.dll
+C:\Users\gries\Desktop\URGE\URGE\URGE\bin\Release\Newtonsoft.Json.dll
+C:\Users\gries\Desktop\URGE\URGE\URGE\obj\x86\Release\URGE.exe.manifest
+C:\Users\gries\Desktop\URGE\URGE\URGE\obj\x86\Release\URGE.application
+C:\Users\gries\Desktop\URGE\URGE\URGE\obj\x86\Release\URGE.exe
+C:\Users\gries\Desktop\URGE\URGE\URGE\obj\x86\Release\URGE.pdb

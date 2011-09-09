@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="URGE.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="key" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ecpyT7PTn3ClIbE7YbX6lg</Value>
+    </Setting>
+    <Setting Name="secret" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MX27PE57B1XwvoGOfnrCMHXiMixxBjIVsNFXSdN8E</Value>
+    </Setting>
+    <Setting Name="pin" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
