@@ -28,23 +28,10 @@ namespace URGE
             OAuthTokenResponse tokenResponse = Twitterizer.OAuthUtility.GetRequestToken(this.key, this.secret, "oob");
 
             string target = "http://twitter.com/oauth/authorize?oauth_token=" + tokenResponse.Token;
-            try
-            {
-                System.Diagnostics.Process.Start(target);
-            }
-            catch (System.ComponentModel.Win32Exception noBrowser)
-            {
-                if (noBrowser.ErrorCode == -2147467259)
-                    MessageBox.Show(noBrowser.Message);
-            }
-            catch (System.Exception other)
-            {
-                MessageBox.Show(other.Message);
-            }
-            
+                  
             Properties.Settings.Default.pin = "";
             
-            Enter_PIN enterpin = new Enter_PIN();
+            Enter_PIN enterpin = new Enter_PIN(target);
             
             enterpin.ShowDialog();
             

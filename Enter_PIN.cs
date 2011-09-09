@@ -16,6 +16,12 @@ namespace URGE
             InitializeComponent();
         }
 
+        public Enter_PIN(string authurl)
+        {
+            InitializeComponent();
+            webTwitterAuth.Navigate(authurl);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (txtPin.Text == "")
