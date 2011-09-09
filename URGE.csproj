@@ -73,9 +73,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Twitterizer2, Version=2.3.3.21964, Culture=neutral, PublicKeyToken=69d1469eac671567, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Twitterizer2.dll</HintPath>
+    <Reference Include="Twitterizer2">
+      <HintPath>.\Twitterizer2.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -121,7 +120,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="URGE_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
