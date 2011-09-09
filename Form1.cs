@@ -31,7 +31,6 @@ namespace URGE
             {
                 if (this.twitterAPI.sendTweet(txtGeneratedTweet.Text))
                 {
-                    MessageBox.Show(" Update Successful.");
                     if (this.txtOperationTag.Text != "") {
                         this.refreshWatchTag(this.txtOperationTag.Text);
                     }
