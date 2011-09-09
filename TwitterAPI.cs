@@ -18,6 +18,7 @@ namespace URGE
 
         public TwitterAPI()
         {
+            // set consumer key / secret of the application
             this.key = Properties.Settings.Default.key;
             this.secret = Properties.Settings.Default.secret;
         }
@@ -40,9 +41,15 @@ namespace URGE
             {
                 MessageBox.Show(other.Message);
             }
+            
             Properties.Settings.Default.pin = "";
+            
             Enter_PIN enterpin = new Enter_PIN();
+            
             enterpin.ShowDialog();
+            
+            // user quited dialog without pin
+            // the exception will be handled and will cause the Application to close
             if (Properties.Settings.Default.pin == "") {
                 throw new TwitterizerException();
             }
@@ -66,7 +73,6 @@ namespace URGE
             tokens.ConsumerKey = this.key;
             tokens.ConsumerSecret = this.secret;
 
-            //TwitterStatus tweetResponse = new TwitterStatus();
             TwitterResponse<TwitterStatus> tweetResponse = TwitterStatus.Update(tokens, text);
             if (tweetResponse.Result == RequestResult.Success)
             {
@@ -110,7 +116,8 @@ namespace URGE
             return tweets;
         }
 
-        protected string getTweetFormated(TwitterSearchResult tweet) {
+        protected string getTweetFormated(TwitterSearchResult tweet) 
+        {
             return string.Format(@"<div style=""color:#666; background-color: #eee; border: 1px solid #ccc; padding: 5px; margin-bottom: 5px; font-family: verdana; font-size: 12px;""><p><b style=""color:#000;""><a target=""_blank"" href=""http://twitter.com/#!/{0}""></b>{0}</b></a>: {1}</p></div>", tweet.FromUserScreenName, this.LinkifyText(tweet.Text));
         }
 
