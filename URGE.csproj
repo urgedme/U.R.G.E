@@ -147,7 +147,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\light_grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_red.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

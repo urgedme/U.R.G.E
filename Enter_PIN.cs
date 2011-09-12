@@ -13,7 +13,7 @@ namespace URGE
     {
         public Enter_PIN()
         {
-            InitializeComponent();
+
         }
 
         public Enter_PIN(string authurl)

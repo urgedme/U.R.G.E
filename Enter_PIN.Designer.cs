@@ -56,6 +56,17 @@
             this.txtPin.Size = new System.Drawing.Size(169, 26);
             this.txtPin.TabIndex = 1;
             // 
+            // picLoadScreen
+            // 
+            this.picLoadScreen.Image = ((System.Drawing.Image)(resources.GetObject("picLoadScreen.Image")));
+            this.picLoadScreen.Location = new System.Drawing.Point(12, 48);
+            this.picLoadScreen.Name = "picLoadScreen";
+            this.picLoadScreen.Size = new System.Drawing.Size(1122, 577);
+            this.picLoadScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picLoadScreen.TabIndex = 4;
+            this.picLoadScreen.TabStop = false;
+
+            // 
             // webTwitterAuth
             // 
             this.webTwitterAuth.Location = new System.Drawing.Point(0, 48);
@@ -75,16 +86,7 @@
             this.label1.Size = new System.Drawing.Size(39, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "PIN:";
-            // 
-            // picLoadScreen
-            // 
-            this.picLoadScreen.Image = ((System.Drawing.Image)(resources.GetObject("picLoadScreen.Image")));
-            this.picLoadScreen.Location = new System.Drawing.Point(0, 48);
-            this.picLoadScreen.Name = "picLoadScreen";
-            this.picLoadScreen.Size = new System.Drawing.Size(1134, 577);
-            this.picLoadScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picLoadScreen.TabIndex = 4;
-            this.picLoadScreen.TabStop = false;
+
             // 
             // Enter_PIN
             // 

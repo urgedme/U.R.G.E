@@ -49,6 +49,8 @@
             this.txtTagPerson = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.picTweetStatus = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picTweetStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // checkTopTrends
@@ -271,11 +273,21 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Generated-Tweet";
             // 
+            // picTweetStatus
+            // 
+            this.picTweetStatus.Image = global::URGE.Properties.Resources.light_grey;
+            this.picTweetStatus.Location = new System.Drawing.Point(591, 555);
+            this.picTweetStatus.Name = "picTweetStatus";
+            this.picTweetStatus.Size = new System.Drawing.Size(20, 20);
+            this.picTweetStatus.TabIndex = 24;
+            this.picTweetStatus.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 597);
+            this.Controls.Add(this.picTweetStatus);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtTagPerson);
             this.Controls.Add(this.webTweetHistory);
@@ -300,6 +312,7 @@
             this.Name = "Form1";
             this.Text = "U.R.G.E. Universal Rapid Gamma Emitter (twitter edition)";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picTweetStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,6 +341,7 @@
         private System.Windows.Forms.TextBox txtTagPerson;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox picTweetStatus;
     }
 }
 

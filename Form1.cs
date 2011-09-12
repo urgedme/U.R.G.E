@@ -27,6 +27,7 @@ namespace URGE
 
         private void btnSendTweet_Click(object sender, EventArgs e)
         {
+            this.picTweetStatus.Image = URGE.Properties.Resources.light_red;
             if (this.checkTweetLength())
             {
                 if (this.twitterAPI.sendTweet(txtGeneratedTweet.Text))
@@ -34,10 +35,13 @@ namespace URGE
                     if (this.txtOperationTag.Text != "") {
                         this.refreshWatchTag(this.txtOperationTag.Text);
                     }
+
+                    this.picTweetStatus.Image = URGE.Properties.Resources.light_green;
                 }
                 else
                 {
-                    MessageBox.Show(" Update did not go through.");
+                    MessageBox.Show("Update did not go through.");
+                    this.picTweetStatus.Image = URGE.Properties.Resources.light_red;
                 }
             }
         }
@@ -126,7 +130,6 @@ namespace URGE
 
         private void txtGeneratedTweet_TextChanged(object sender, EventArgs e)
         {
-            this.checkTweetLength();
             int len = txtGeneratedTweet.Text.Length;
             txtCharCount.Text =  len.ToString()+ "/140";
         }

@@ -60,9 +60,23 @@ namespace URGE.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap _396014864 {
+        internal static System.Drawing.Bitmap light_green {
             get {
-                object obj = ResourceManager.GetObject("396014864", resourceCulture);
+                object obj = ResourceManager.GetObject("light_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap light_grey {
+            get {
+                object obj = ResourceManager.GetObject("light_grey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap light_red {
+            get {
+                object obj = ResourceManager.GetObject("light_red", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
