@@ -34,5 +34,10 @@ namespace URGE
                 Close();
             }
         }
+
+        private void webTwitterAuth_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            this.picLoadScreen.Visible = false;
+        }
     }
 }

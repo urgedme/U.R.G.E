@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Enter_PIN));
             this.button1 = new System.Windows.Forms.Button();
             this.txtPin = new System.Windows.Forms.TextBox();
             this.webTwitterAuth = new System.Windows.Forms.WebBrowser();
             this.label1 = new System.Windows.Forms.Label();
+            this.picLoadScreen = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picLoadScreen)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -61,6 +64,7 @@
             this.webTwitterAuth.ScrollBarsEnabled = false;
             this.webTwitterAuth.Size = new System.Drawing.Size(1125, 577);
             this.webTwitterAuth.TabIndex = 2;
+            this.webTwitterAuth.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webTwitterAuth_DocumentCompleted);
             // 
             // label1
             // 
@@ -72,17 +76,29 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "PIN:";
             // 
+            // picLoadScreen
+            // 
+            this.picLoadScreen.Image = ((System.Drawing.Image)(resources.GetObject("picLoadScreen.Image")));
+            this.picLoadScreen.Location = new System.Drawing.Point(0, 48);
+            this.picLoadScreen.Name = "picLoadScreen";
+            this.picLoadScreen.Size = new System.Drawing.Size(1134, 577);
+            this.picLoadScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picLoadScreen.TabIndex = 4;
+            this.picLoadScreen.TabStop = false;
+            // 
             // Enter_PIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 624);
+            this.Controls.Add(this.picLoadScreen);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.webTwitterAuth);
             this.Controls.Add(this.txtPin);
             this.Controls.Add(this.button1);
             this.Name = "Enter_PIN";
             this.Text = "Twitter authentication";
+            ((System.ComponentModel.ISupportInitialize)(this.picLoadScreen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,5 +110,6 @@
         private System.Windows.Forms.TextBox txtPin;
         private System.Windows.Forms.WebBrowser webTwitterAuth;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox picLoadScreen;
     }
 }
