@@ -52,13 +52,15 @@ namespace URGE
             }
         }
 
+        OAuthTokens tokens;
+
         public bool sendTweet(string text)
         {
-            OAuthTokens tokens = new OAuthTokens();
-            tokens.AccessToken = this.authResponse.Token;
-            tokens.AccessTokenSecret = this.authResponse.TokenSecret;
-            tokens.ConsumerKey = this.key;
-            tokens.ConsumerSecret = this.secret;
+            this.tokens = new OAuthTokens();
+            this.tokens.AccessToken = this.authResponse.Token;
+            this.tokens.AccessTokenSecret = this.authResponse.TokenSecret;
+            this.tokens.ConsumerKey = this.key;
+            this.tokens.ConsumerSecret = this.secret;
 
             TwitterResponse<TwitterStatus> tweetResponse = TwitterStatus.Update(tokens, text);
             if (tweetResponse.Result == RequestResult.Success)
@@ -138,5 +140,17 @@ namespace URGE
         }
 
 
+
+        public List<string> getTwitterFriendNames()
+        {
+            List<string> names = new List<string>();
+            TwitterResponse<TwitterUserCollection> col = TwitterFriendship.Friends(this.tokens);
+     
+            foreach (TwitterUser u in col.ResponseObject) {
+                names.Add(u.Name);
+            }
+
+            return names;
+        }
     }
 }

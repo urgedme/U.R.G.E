@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.checkTopTrends = new System.Windows.Forms.CheckedListBox();
             this.txtGeneratedTweet = new System.Windows.Forms.TextBox();
             this.btnSendTweet = new System.Windows.Forms.Button();
@@ -44,12 +46,17 @@
             this.btnRefreshWatchTag = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCharCount = new System.Windows.Forms.Label();
-            this.btnRefreshTrends = new System.Windows.Forms.Button();
             this.webTweetHistory = new System.Windows.Forms.WebBrowser();
             this.txtTagPerson = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.picTweetStatus = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.timerTrend = new System.Windows.Forms.Timer(this.components);
+            this.timerWatchTag = new System.Windows.Forms.Timer(this.components);
+            this.changeImage = new System.ComponentModel.BackgroundWorker();
+            this.timerTweetStatus = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picTweetStatus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,11 +106,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(518, 225);
+            this.label1.Location = new System.Drawing.Point(512, 228);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 16);
+            this.label1.Size = new System.Drawing.Size(83, 16);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Top-Trends";
+            this.label1.Text = "Top-Trends:";
             // 
             // checkAntiShock
             // 
@@ -111,7 +118,7 @@
             this.checkAntiShock.Checked = true;
             this.checkAntiShock.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkAntiShock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkAntiShock.Location = new System.Drawing.Point(510, 105);
+            this.checkAntiShock.Location = new System.Drawing.Point(505, 105);
             this.checkAntiShock.Name = "checkAntiShock";
             this.checkAntiShock.Size = new System.Drawing.Size(87, 19);
             this.checkAntiShock.TabIndex = 7;
@@ -181,11 +188,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(493, 28);
+            this.label3.Location = new System.Drawing.Point(485, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 16);
+            this.label3.Size = new System.Drawing.Size(107, 16);
             this.label3.TabIndex = 13;
-            this.label3.Text = "Operation name";
+            this.label3.Text = "Operation name:";
             // 
             // txtFollowTag
             // 
@@ -202,7 +209,7 @@
             this.btnRefreshWatchTag.Name = "btnRefreshWatchTag";
             this.btnRefreshWatchTag.Size = new System.Drawing.Size(113, 26);
             this.btnRefreshWatchTag.TabIndex = 16;
-            this.btnRefreshWatchTag.Text = "Refresh";
+            this.btnRefreshWatchTag.Text = "Watch";
             this.btnRefreshWatchTag.UseVisualStyleBackColor = true;
             this.btnRefreshWatchTag.Click += new System.EventHandler(this.btnRefreshWatchTag_Click);
             // 
@@ -226,17 +233,6 @@
             this.txtCharCount.TabIndex = 19;
             this.txtCharCount.Text = "0/140";
             // 
-            // btnRefreshTrends
-            // 
-            this.btnRefreshTrends.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefreshTrends.Location = new System.Drawing.Point(814, 312);
-            this.btnRefreshTrends.Name = "btnRefreshTrends";
-            this.btnRefreshTrends.Size = new System.Drawing.Size(90, 35);
-            this.btnRefreshTrends.TabIndex = 20;
-            this.btnRefreshTrends.Text = "Refresh";
-            this.btnRefreshTrends.UseVisualStyleBackColor = true;
-            this.btnRefreshTrends.Click += new System.EventHandler(this.btnRefreshTrends_Click);
-            // 
             // webTweetHistory
             // 
             this.webTweetHistory.Location = new System.Drawing.Point(16, 56);
@@ -247,31 +243,33 @@
             // 
             // txtTagPerson
             // 
+            this.txtTagPerson.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtTagPerson.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtTagPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTagPerson.Location = new System.Drawing.Point(614, 56);
+            this.txtTagPerson.Location = new System.Drawing.Point(615, 56);
             this.txtTagPerson.Name = "txtTagPerson";
-            this.txtTagPerson.Size = new System.Drawing.Size(290, 22);
+            this.txtTagPerson.Size = new System.Drawing.Size(289, 22);
             this.txtTagPerson.TabIndex = 22;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(519, 56);
+            this.label5.Location = new System.Drawing.Point(511, 59);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 16);
+            this.label5.Size = new System.Drawing.Size(81, 16);
             this.label5.TabIndex = 23;
-            this.label5.Text = "Tag person";
+            this.label5.Text = "Tag person:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(485, 444);
+            this.label2.Location = new System.Drawing.Point(479, 441);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 16);
+            this.label2.Size = new System.Drawing.Size(116, 16);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Generated-Tweet";
+            this.label2.Text = "Generated-Tweet:";
             // 
             // picTweetStatus
             // 
@@ -282,16 +280,54 @@
             this.picTweetStatus.TabIndex = 24;
             this.picTweetStatus.TabStop = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(596, 31);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(15, 13);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "#";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(595, 61);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(19, 13);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "@";
+            // 
+            // timerTrend
+            // 
+            this.timerTrend.Tick += new System.EventHandler(this.timerTrend_Tick);
+            // 
+            // timerWatchTag
+            // 
+            this.timerWatchTag.Tick += new System.EventHandler(this.timerWatchTag_Tick);
+            // 
+            // changeImage
+            // 
+            this.changeImage.DoWork += new System.ComponentModel.DoWorkEventHandler(this.changeImage_DoWork);
+            // 
+            // timerTweetStatus
+            // 
+            this.timerTweetStatus.Interval = 3000;
+            this.timerTweetStatus.Tick += new System.EventHandler(this.timerTweetStatus_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 597);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.picTweetStatus);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtTagPerson);
             this.Controls.Add(this.webTweetHistory);
-            this.Controls.Add(this.btnRefreshTrends);
             this.Controls.Add(this.txtCharCount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnRefreshWatchTag);
@@ -309,6 +345,7 @@
             this.Controls.Add(this.btnSendTweet);
             this.Controls.Add(this.txtGeneratedTweet);
             this.Controls.Add(this.checkTopTrends);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "U.R.G.E. Universal Rapid Gamma Emitter (twitter edition)";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -336,12 +373,17 @@
         private System.Windows.Forms.Button btnRefreshWatchTag;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label txtCharCount;
-        private System.Windows.Forms.Button btnRefreshTrends;
         private System.Windows.Forms.WebBrowser webTweetHistory;
         private System.Windows.Forms.TextBox txtTagPerson;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox picTweetStatus;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Timer timerTrend;
+        private System.Windows.Forms.Timer timerWatchTag;
+        private System.ComponentModel.BackgroundWorker changeImage;
+        private System.Windows.Forms.Timer timerTweetStatus;
     }
 }
 

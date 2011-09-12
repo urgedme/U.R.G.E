@@ -117,7 +117,51 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="timerTrend.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
+  <metadata name="timerWatchTag.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>129, 17</value>
+  </metadata>
+  <metadata name="changeImage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>264, 17</value>
+  </metadata>
+  <metadata name="timerTweetStatus.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>389, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAFBQAAAEAIAC4BgAAFgAAACgAAAAUAAAAKAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD4+PgAgICABWtraypra2swa2trL2pqai9qamovampqL2pqai9ra2svampqL2pqai9qamova2trL2pq
+        ai9ra2sva2trMGxsbCjAwMAD////AObm5gARERFqAAAA6gAAAO4AAADuAwMD7gQEBO4DAwPuBAQE7gMD
+        A+4FBQXuBAQE7gMDA+4CAgLuAgIC7gAAAO4AAADuAAAA6CcnJ13y8vIA3NzcAA4ODqAAAAD/AAAA/xER
+        Ef8oKCj/JiYm/yYmJv8xMTH/JiYm/zs7O/8sLCz/ISEh/x0dHf8fHx//AAAA/wAAAP8AAAD/FhYWkejo
+        6ADd3d0ADw8PnQAAAP84ODj/np6e/6enp/+rq6v/dnZ2/xQUFP8TExP/GRkZ/5GRkf+pqan/qamp/6io
+        qP93d3f/AAAA/wAAAP8YGBiO6enpAN3d3QAPDw+dAAAA/2JiYv////////////////+Ojo7/AAAA/wAA
+        AP8AAAD/t7e3/////////////////87Ozv8AAAD/AAAA/xgYGI7p6ekA3d3dAA8PD50AAAD/Xl5e////
+        ///9/f3//////2dnZ/8AAAD/AAAA/wAAAP+JiYn///////39/f//////xsbG/wAAAP8AAAD/GBgYjunp
+        6QDd3d0ADw8PnQAAAP9eXl7///////7+/v/9/f3/TExM/wAAAP8AAAD/AAAA/2dnZ//9/f3//f39////
+        ///Gxsb/AAAA/wAAAP8YGBiO6enpAN3d3QATExOdAwMD/2BgYP///////////+rq6v8YGBj/AAAA/wAA
+        AP8AAAD/IyMj//Ly8v///////////8XFxf8AAAD/AAAA/xgYGI7p6ekA29vbAB8fH50cHBz/dHR0////
+        ////////+fn5/zQ0NP8GBgb/AgIC/wAAAP8tLS3/////////////////xcXF/wAAAP8AAAD/FhUWjunp
+        6QDf398AQkJBnUdIR/+Pj47////////////d3d3/S0tL/zMzM/8wMDD/JCQk/yUlJf+urq7//Pz8////
+        ///MzMz/Hh8e/x0eHf80NDOO7OzsAOTk5ABqammddnZ1/6qqqf//////+/v7/3BwcP9AQED/R0dH/0dH
+        R/9ISEj/Q0ND/0lJSf/o6Oj//////9XV1P9FRUT/REVD/1hYV47v7+8A5OTkAG1tbJ2BgYD/sLCw////
+        ///8/Pz/dXV1/1NTU/9WVlb/VVVV/1ZWVv9VVVX/YmJi/+3t7f//////3Nzc/1BQT/8/Pz7/VlZVju/v
+        7wDj4+MAc3NynY6Ojf+4uLj///////////+Xl5f/YmJi/2xsbP9+fn7/bm5u/2RkZP98fHz/+Pj4////
+        ///n5+f/jY2M/11dXP9UVFOO7+/vAOPj4gB4eHedm5ua/8DAv////////////7q6uv9sbGz/mpqa/8TE
+        xP+jo6P/bW1t/5WVlf/+/v7//////+np6P+enp3/mpqZ/2xsa47s7OwA4uLiAH19fZ2np6f/x8fH////
+        ////////5eXl/56env+zs7P/39/f/8DAwP+dnZ3/z8/P////////////6+vr/6ioqP+qqqn/fn5+jurq
+        6gDi4uEAgoKCnbOzsv/Ozs7///////////////////////Dw8P/e3t7/6urq////////////////////
+        ///v7+//s7Oy/7S0tP+BgYGO6urqAODg4ACIiIegwMDA/9HR0P/x8fH/8PDw//Dw8P/x8fH/8vLy//Hx
+        8f/y8vL/8fHx//Dw8P/w8PD/8fHx/+bm5f+/v77/wcHB/4WFhZHp6ekA6OjoAHx8e3Ovr67vra2s8ays
+        q/GsrKvxrKyr8aysq/GsrKvxrKys8aysq/GsrKvxrKyr8aysq/GsrKvxrKys8a2trfGsrKzuhYWEZfHx
+        8QD7+/sAq6uqBqGhoSejo6Mro6OjK6Ojoyujo6Mro6OjK6Ojoyujo6Mro6OjK6Ojoyujo6Mro6OjK6Oj
+        oyujo6Mro6OjK6CgoCbV1dUE////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A///wAMAAMACAABAAgAAQAIAA
+        EACAABAAgAAQAIAAEACAABAAgAAQAIAAEACAABAAgAAQAIAAEACAABAAgAAQAIAAEADAADAA///wAP//
+        8AA=
+</value>
+  </data>
 </root>

@@ -28,15 +28,20 @@ namespace URGE
         private void btnSendTweet_Click(object sender, EventArgs e)
         {
             this.picTweetStatus.Image = URGE.Properties.Resources.light_red;
+            System.Threading.Thread.Sleep(100);
             if (this.checkTweetLength())
             {
                 if (this.twitterAPI.sendTweet(txtGeneratedTweet.Text))
                 {
                     if (this.txtOperationTag.Text != "") {
                         this.refreshWatchTag(this.txtOperationTag.Text);
+                        timerWatchTag.Interval = 10000;
+                        timerWatchTag.Stop();
+                        timerWatchTag.Start();
                     }
-
+                    System.Threading.Thread.Sleep(200);
                     this.picTweetStatus.Image = URGE.Properties.Resources.light_green;
+                    this.timerTweetStatus.Start();
                 }
                 else
                 {
@@ -119,15 +124,6 @@ namespace URGE
             }
         }
 
-        private void btnRefreshTrends_Click(object sender, EventArgs e)
-        {
-            this.checkTopTrends.Items.Clear();
-            foreach (string trend in this.twitterAPI.getGetCurrentTrends())
-            {
-                this.checkTopTrends.Items.Add(trend);
-            }
-        }
-
         private void txtGeneratedTweet_TextChanged(object sender, EventArgs e)
         {
             int len = txtGeneratedTweet.Text.Length;
@@ -149,6 +145,8 @@ namespace URGE
             if (txtFollowTag.Text != "")
             {
                 this.refreshWatchTag(txtFollowTag.Text);
+                timerWatchTag.Interval = 10000;
+                timerWatchTag.Start();
             }
         }
 
@@ -184,7 +182,64 @@ namespace URGE
             {
                 this.Close();
                 Application.Exit();
-            }   
+            }
+            foreach (string name in this.twitterAPI.getTwitterFriendNames()) {
+                txtTagPerson.AutoCompleteCustomSource.Add(name);
+                txtTagPerson.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
+            
+
+            this.refreshTrends();
+            timerTrend.Interval = 10000;
+            timerTrend.Start();
         }
+
+        private void refreshTrends()
+        {
+            int i = 0;
+            List<string> checkedTrends = new List<string>();
+            foreach (string trend in this.checkTopTrends.CheckedItems) {
+                checkedTrends.Add(trend);
+            } 
+
+            this.checkTopTrends.Items.Clear();
+            foreach (string trend in this.twitterAPI.getGetCurrentTrends())
+            {
+                this.checkTopTrends.Items.Remove(i);
+                if (checkedTrends.Contains(trend))
+                {
+                    this.checkTopTrends.Items.Add(trend, true);
+                }
+                else {
+                    this.checkTopTrends.Items.Add(trend);
+                }
+                i++;
+            }
+        }
+
+        private void timerTrend_Tick(object sender, EventArgs e)
+        {
+            this.refreshTrends();
+        }
+
+        private void timerWatchTag_Tick(object sender, EventArgs e)
+        {
+            if (txtFollowTag.Text != "")
+            {
+                this.refreshWatchTag(txtFollowTag.Text);
+            }
+        }
+
+        private void timerTweetStatus_Tick(object sender, EventArgs e)
+        {
+            this.picTweetStatus.Image = URGE.Properties.Resources.light_grey;
+            this.timerTweetStatus.Start();
+        }
+
+        private void changeImage_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
     }
 }
