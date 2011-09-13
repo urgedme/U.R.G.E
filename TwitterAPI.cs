@@ -78,9 +78,15 @@ namespace URGE
             List<string> hashes = new List<string>();
 
             TwitterResponse<TwitterTrendCollection> col= TwitterTrend.Current();
-
-            foreach (TwitterTrend trend in col.ResponseObject) {
-                hashes.Add(trend.Name);
+            try
+            {
+                foreach (TwitterTrend trend in col.ResponseObject)
+                {
+                    hashes.Add(trend.Name);
+                }
+            }
+            catch (TwitterizerException e) {
+                return hashes;
             }
 
             return hashes;
@@ -137,20 +143,6 @@ namespace URGE
                 additional = "http://";
             }
             return "<a href=\"" + additional + m.Value + "\" target=\"_blank\">" + m.Value + "</a>";
-        }
-
-
-
-        public List<string> getTwitterFriendNames()
-        {
-            List<string> names = new List<string>();
-            TwitterResponse<TwitterUserCollection> col = TwitterFriendship.Friends(this.tokens);
-     
-            foreach (TwitterUser u in col.ResponseObject) {
-                names.Add(u.Name);
-            }
-
-            return names;
         }
     }
 }

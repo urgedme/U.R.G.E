@@ -15,7 +15,6 @@ namespace URGE
         public Form1()
         {
             InitializeComponent();
-            this.twitterAPI = new TwitterAPI();
         }
 
         public void init()
@@ -31,22 +30,9 @@ namespace URGE
             System.Threading.Thread.Sleep(100);
             if (this.checkTweetLength())
             {
-                if (this.twitterAPI.sendTweet(txtGeneratedTweet.Text))
+                if (!workerSendTweet.IsBusy)
                 {
-                    if (this.txtOperationTag.Text != "") {
-                        this.refreshWatchTag(this.txtOperationTag.Text);
-                        timerWatchTag.Interval = 10000;
-                        timerWatchTag.Stop();
-                        timerWatchTag.Start();
-                    }
-                    System.Threading.Thread.Sleep(200);
-                    this.picTweetStatus.Image = URGE.Properties.Resources.light_green;
-                    this.timerTweetStatus.Start();
-                }
-                else
-                {
-                    MessageBox.Show("Update did not go through.");
-                    this.picTweetStatus.Image = URGE.Properties.Resources.light_red;
+                    workerSendTweet.RunWorkerAsync();
                 }
             }
         }
@@ -145,7 +131,7 @@ namespace URGE
             if (txtFollowTag.Text != "")
             {
                 this.refreshWatchTag(txtFollowTag.Text);
-                timerWatchTag.Interval = 10000;
+                timerWatchTag.Interval = 1000*60*1;
                 timerWatchTag.Start();
             }
         }
@@ -176,6 +162,7 @@ namespace URGE
         {
             try
             {
+                this.twitterAPI = new TwitterAPI();
                 this.twitterAPI.auth();
             }
             catch (TwitterizerException ex)
@@ -183,14 +170,9 @@ namespace URGE
                 this.Close();
                 Application.Exit();
             }
-            foreach (string name in this.twitterAPI.getTwitterFriendNames()) {
-                txtTagPerson.AutoCompleteCustomSource.Add(name);
-                txtTagPerson.AutoCompleteMode = AutoCompleteMode.Suggest;
-            }
-            
 
             this.refreshTrends();
-            timerTrend.Interval = 10000;
+            timerTrend.Interval = 1000*60*5;
             timerTrend.Start();
         }
 
@@ -233,13 +215,35 @@ namespace URGE
         private void timerTweetStatus_Tick(object sender, EventArgs e)
         {
             this.picTweetStatus.Image = URGE.Properties.Resources.light_grey;
+            this.timerTweetStatus.Stop();
+        }
+
+        private void workerSendTweet_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (this.twitterAPI.sendTweet(txtGeneratedTweet.Text))
+            {
+                if (this.txtOperationTag.Text != "")
+                {
+                    this.refreshWatchTag(this.txtOperationTag.Text);
+                    timerWatchTag.Interval = 1000*60*1;
+                    timerWatchTag.Stop();
+                    timerWatchTag.Start();
+                }
+
+                this.picTweetStatus.Image = URGE.Properties.Resources.light_green;
+            }
+            else
+            {
+         //       MessageBox.Show("Update did not go through.");
+                this.picTweetStatus.Image = URGE.Properties.Resources.light_red;
+
+            }
+        }
+
+        private void workerSendTweet_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.timerTweetStatus.Interval = 5000;
             this.timerTweetStatus.Start();
         }
-
-        private void changeImage_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-        }
-
     }
 }

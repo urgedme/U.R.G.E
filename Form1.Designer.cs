@@ -55,8 +55,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.timerTrend = new System.Windows.Forms.Timer(this.components);
             this.timerWatchTag = new System.Windows.Forms.Timer(this.components);
-            this.changeImage = new System.ComponentModel.BackgroundWorker();
             this.timerTweetStatus = new System.Windows.Forms.Timer(this.components);
+            this.workerSendTweet = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.picTweetStatus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -308,14 +308,15 @@
             // 
             this.timerWatchTag.Tick += new System.EventHandler(this.timerWatchTag_Tick);
             // 
-            // changeImage
-            // 
-            this.changeImage.DoWork += new System.ComponentModel.DoWorkEventHandler(this.changeImage_DoWork);
-            // 
             // timerTweetStatus
             // 
             this.timerTweetStatus.Interval = 3000;
             this.timerTweetStatus.Tick += new System.EventHandler(this.timerTweetStatus_Tick);
+            // 
+            // workerSendTweet
+            // 
+            this.workerSendTweet.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerSendTweet_DoWork);
+            this.workerSendTweet.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerSendTweet_RunWorkerCompleted);
             // 
             // Form1
             // 
@@ -382,8 +383,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer timerTrend;
         private System.Windows.Forms.Timer timerWatchTag;
-        private System.ComponentModel.BackgroundWorker changeImage;
         private System.Windows.Forms.Timer timerTweetStatus;
+        private System.ComponentModel.BackgroundWorker workerSendTweet;
     }
 }
 
