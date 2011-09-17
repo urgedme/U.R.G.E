@@ -32,6 +32,7 @@ namespace URGE
             {
                 if (!workerSendTweet.IsBusy)
                 {
+                    txtFollowTag.Text = this.txtOperationTag.Text;
                     workerSendTweet.RunWorkerAsync();
                 }
             }
@@ -138,7 +139,6 @@ namespace URGE
 
         private void refreshWatchTag(string tag) 
         {
-            txtFollowTag.Text = tag;
             string html = @"<html><head></head><body style=""background-color: #333;"">";
             foreach (string tweet in this.twitterAPI.getCurrentTweetsForHash(tag))
             {

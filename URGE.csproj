@@ -147,10 +147,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\light_grey.png" />
+    <None Include="Resources\light_green.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\light_green.png" />
+    <None Include="Resources\light_grey.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\light_red.png" />
